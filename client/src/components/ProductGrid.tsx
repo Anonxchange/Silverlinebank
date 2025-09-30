@@ -1,38 +1,34 @@
-import { CreditCard, Home, DollarSign, Car, TrendingUp, Award, GraduationCap } from "lucide-react";
-
 const products = [
-  { icon: CreditCard, label: "Credit Cards", color: "text-chart-1" },
-  { icon: Home, label: "Home Loans", color: "text-chart-3" },
-  { icon: DollarSign, label: "Personal Loans", color: "text-chart-2" },
-  { icon: Car, label: "Auto Loans", color: "text-chart-3" },
-  { icon: TrendingUp, label: "Investing", color: "text-chart-2" },
-  { icon: Award, label: "Premier", color: "text-chart-3" },
-  { icon: GraduationCap, label: "Education & Tools", color: "text-chart-2" },
+  { emoji: "💳", label: "Checking", gradient: "from-purple-400 to-blue-500" },
+  { emoji: "💰", label: "Savings & CDs", gradient: "from-orange-400 to-yellow-500" },
+  { emoji: "💳", label: "Credit Cards", gradient: "from-red-500 to-pink-500" },
+  { emoji: "🏠", label: "Home Loans", gradient: "from-purple-500 to-indigo-400" },
+  { emoji: "📋", label: "Personal Loans", gradient: "from-orange-400 to-red-400" },
+  { emoji: "🚗", label: "Auto Loans", gradient: "from-red-600 to-orange-500" },
+  { emoji: "📊", label: "Investing", gradient: "from-indigo-400 to-purple-500" },
+  { emoji: "👤", label: "Premier", gradient: "from-yellow-400 to-purple-400" },
+  { emoji: "🧮", label: "Education & Tools", gradient: "from-purple-500 to-pink-500" },
 ];
 
 export default function ProductGrid() {
   return (
-    <section className="bg-background py-12 md:py-16 border-b border-border">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-          {products.map((product, index) => {
-            const Icon = product.icon;
-            return (
-              <button
-                key={index}
-                className="flex flex-col items-center gap-3 p-4 rounded-md hover-elevate active-elevate-2 transition-all"
-                data-testid={`button-product-${product.label.toLowerCase().replace(/\s+/g, '-')}`}
-                onClick={() => console.log(`${product.label} clicked`)}
-              >
-                <div className={`${product.color}`}>
-                  <Icon className="w-10 h-10 md:w-12 md:h-12" />
-                </div>
-                <span className="text-sm md:text-base font-medium text-foreground text-center" data-testid={`text-product-${product.label.toLowerCase().replace(/\s+/g, '-')}`}>
-                  {product.label}
-                </span>
-              </button>
-            );
-          })}
+    <section className="bg-background py-8 md:py-12 border-b border-border">
+      <div className="max-w-md mx-auto px-4">
+        <div className="grid grid-cols-2 gap-4">
+          {products.map((product, index) => (
+            <button
+              key={index}
+              className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent active:bg-accent/80 transition-all text-left"
+              onClick={() => console.log(`${product.label} clicked`)}
+            >
+              <div className={`flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br ${product.gradient} flex items-center justify-center text-2xl shadow-md`}>
+                {product.emoji}
+              </div>
+              <span className="text-base font-medium text-foreground">
+                {product.label}
+              </span>
+            </button>
+          ))}
         </div>
       </div>
     </section>
