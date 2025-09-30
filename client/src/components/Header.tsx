@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useLocation } from "wouter";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import NavigationMenu from "./NavigationMenu";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [, setLocation] = useLocation();
 
   return (
     <>
@@ -19,7 +21,7 @@ export default function Header() {
             variant="secondary" 
             className="bg-white text-foreground hover:bg-white/90 font-medium"
             data-testid="button-sign-on"
-            onClick={() => console.log('Sign On clicked')}
+            onClick={() => setLocation('/sign-on')}
           >
             Sign On
           </Button>
