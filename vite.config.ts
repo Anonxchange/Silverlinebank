@@ -26,9 +26,9 @@ export default defineConfig({
       "@assets": path.resolve(import.meta.dirname, "attached_assets"),
     },
   },
-  root: path.resolve(import.meta.dirname, "client"),
+  root: path.resolve(import.meta.dirname, "client"), // 👈 index.html entry lives here
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    outDir: path.resolve(import.meta.dirname, "dist"), // ✅ final build goes here
     emptyOutDir: true,
   },
   server: {
