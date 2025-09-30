@@ -25,88 +25,60 @@ export default function InterestRatesSection() {
   }, []);
 
   return (
-    <section className="bg-background py-12 md:py-16">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          {/* Interest Rates Card */}
-          <Card className="bg-gradient-to-r from-orange-50 to-orange-100 border-none">
-            <CardContent className="p-6 md:p-8">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="bg-orange-500 rounded-full p-3 relative">
-                  <svg viewBox="0 0 24 24" className="w-8 h-8 text-white fill-current">
-                    <path d="M7 4V2C7 1.45 7.45 1 8 1S9 1.55 9 2V4H15V2C15 1.45 15.45 1 16 1S17 1.55 17 2V4H20C21.1 4 22 4.9 22 6V20C22 21.1 21.1 22 20 22H4C2.9 22 2 21.1 2 20V6C2 4.9 2.9 4 4 4H7ZM20 8H4V20H20V8ZM6 10V12H18V10H6Z"/>
-                  </svg>
-                  <div className="absolute -top-1 -right-1 text-yellow-400">
-                    <span className="text-lg">✨</span>
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-2xl md:text-3xl font-semibold text-foreground">
-                    Interest rates today
-                  </h3>
-                  <Button 
-                    variant="link" 
-                    className="p-0 h-auto text-blue-600 font-medium"
-                    data-testid="button-learn-more-rates"
-                  >
-                    Learn more &gt;
-                  </Button>
-                </div>
+    <section className="bg-background">
+      <div className="w-full">
+        {/* Full Width Home Ownership Card */}
+        <Card className="overflow-hidden w-full max-w-none rounded-none border-0">
+          <div className="relative h-[60vh] md:h-[70vh] overflow-hidden">
+            {interestImages.map((img, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 transition-opacity duration-1000 ${
+                  index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                }`}
+              >
+                <img 
+                  src={img} 
+                  alt={`Home ownership slide ${index + 1}`}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50"></div>
               </div>
-            </CardContent>
-          </Card>
-
-          {/* Home Ownership Card with Changing Images */}
-          <Card className="overflow-hidden">
-            <div className="relative h-80 md:h-96 overflow-hidden">
-              {interestImages.map((img, index) => (
-                <div
-                  key={index}
-                  className={`absolute inset-0 transition-opacity duration-1000 ${
-                    index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-                  }`}
-                >
-                  <img 
-                    src={img} 
-                    alt={`Home ownership slide ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-foreground/70"></div>
-                </div>
-              ))}
-              
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white z-10">
-                <h3 className="text-2xl md:text-3xl font-semibold mb-4" data-testid="text-home-ownership-title">
+            ))}
+            
+            <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 text-white z-10">
+              <div className="max-w-md mx-auto text-center">
+                <h3 className="text-3xl md:text-4xl font-light mb-6" data-testid="text-home-ownership-title">
                   A home of your own
                 </h3>
-                <p className="text-base mb-6 opacity-90" data-testid="text-home-ownership-description">
+                <p className="text-lg mb-8 opacity-90 font-light" data-testid="text-home-ownership-description">
                   With low down payment options on a fixed-rate mortgage
                 </p>
                 <Button 
                   variant="outline" 
                   size="lg"
-                  className="w-full bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20"
+                  className="w-full max-w-xs bg-transparent border-2 border-white text-white hover:bg-white hover:text-black rounded-full py-4 px-8 text-lg font-medium transition-all duration-300"
                   data-testid="button-get-started-home"
                 >
                   Get started
                 </Button>
               </div>
             </div>
-            
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-              {interestImages.map((_, index) => (
-                <button
-                  key={index}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    index === currentImageIndex ? 'bg-white w-8' : 'bg-white/50'
-                  }`}
-                  onClick={() => setCurrentImageIndex(index)}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
-          </Card>
-        </div>
+          </div>
+          
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+            {interestImages.map((_, index) => (
+              <button
+                key={index}
+                className={`h-1 rounded-full transition-all duration-300 ${
+                  index === currentImageIndex ? 'bg-yellow-400 w-8' : 'bg-white/50 w-2'
+                }`}
+                onClick={() => setCurrentImageIndex(index)}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </Card>
       </div>
     </section>
   );
