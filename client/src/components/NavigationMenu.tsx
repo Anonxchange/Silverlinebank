@@ -2,6 +2,7 @@ import { useState } from "react";
 import { X, ChevronRight, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useLocation } from "wouter";
 
 interface NavigationMenuProps {
   isOpen: boolean;
@@ -43,6 +44,7 @@ const menuSections = [
 ];
 
 export default function NavigationMenu({ isOpen, onClose }: NavigationMenuProps) {
+  const [, setLocation] = useLocation();
   const [searchQuery, setSearchQuery] = useState("");
 
   if (!isOpen) return null;
@@ -62,7 +64,10 @@ export default function NavigationMenu({ isOpen, onClose }: NavigationMenuProps)
               size="sm"
               className="bg-white text-foreground hover:bg-white/90"
               data-testid="button-menu-sign-on"
-              onClick={() => console.log('Sign On clicked')}
+              onClick={() => {
+                setLocation('/sign-on');
+                onClose();
+              }}
             >
               Sign On
             </Button>
