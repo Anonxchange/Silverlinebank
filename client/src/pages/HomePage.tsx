@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ProductGrid from "@/components/ProductGrid";
-import TrustSection from "@/components/TrustSection";
 import PromotionalCards from "@/components/PromotionalCards";
 import InterestRatesSection from "@/components/InterestRatesSection";
 import FinancialGuidanceSection from "@/components/FinancialGuidanceSection";
@@ -18,8 +17,7 @@ export default function HomePage() {
       <Header />
       <main>
         <HeroSection />
-        <ProductGrid />
-        <TrustSection />
+        <ProductGrid />        
         <PromotionalCards />
         <InterestRatesSection />
         <FinancialGuidanceSection />
