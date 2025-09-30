@@ -10,7 +10,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="bg-primary text-primary-foreground h-16 flex items-center justify-between px-4 md:px-6 sticky top-0 z-50">
+      <header className="bg-primary text-primary-foreground h-16 flex items-center justify-between px-4 md:px-6">
         <div className="flex items-center">
           <h1 className="text-xl md:text-2xl font-bold tracking-tight" data-testid="text-bank-name">
             SILVERLINE BANK
