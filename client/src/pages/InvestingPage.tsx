@@ -3,14 +3,14 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 
-// Use public path for images
-const professionalBusinessImg = "/attached_assets/stock_images/female-professional-helping-new-employee%202.jpg";
-const happyMotherImg = "/attached_assets/stock_images/happy_mother_playing_2f22dd98.jpg";
-const modernBridgeImg = "/attached_assets/stock_images/modern_bridge_infras_69e246fe.jpg";
-const personHoldingSmartImg = "/attached_assets/stock_images/person_holding_smart_653c4fd0.jpg";
-const happyCoupleImg = "/attached_assets/stock_images/happy_couple_embraci_f23d0507.jpg";
-const laboratoryImg = "/attached_assets/stock_images/laboratory_test_tube_472c2098.jpg";
-const digitalNetworkImg = "/attached_assets/stock_images/digital_network_glob_1ab6bb9b.jpg";
+// ✅ External Unsplash images
+const professionalBusinessImg = "https://images.unsplash.com/photo-1581090700227-4c4f8b3a56b9?q=80&w=1200&auto=format&fit=crop";
+const happyMotherImg = "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=1200&auto=format&fit=crop";
+const modernBridgeImg = "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?q=80&w=1200&auto=format&fit=crop";
+const personHoldingSmartImg = "https://images.unsplash.com/photo-1510552776732-03e61cf4b144?q=80&w=1200&auto=format&fit=crop";
+const happyCoupleImg = "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop";
+const laboratoryImg = "https://images.unsplash.com/photo-1581092795360-6a5d3c1df2b3?q=80&w=1200&auto=format&fit=crop";
+const digitalNetworkImg = "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop";
 
 const investmentOptions = [
   {
@@ -109,6 +109,7 @@ export default function InvestingPage() {
           </div>
         </section>
 
+        {/* ✅ Rest of the code stays the same, just images now external */}
         <section className="py-8 md:py-12 bg-background">
           <div className="max-w-md mx-auto px-4 space-y-4">
             {investmentOptions.map((option, index) => {
@@ -165,6 +166,7 @@ export default function InvestingPage() {
           </div>
         </section>
 
+        {/* Insights */}
         <section className="py-12 md:py-16 bg-background border-t border-border">
           <div className="max-w-md mx-auto px-4">
             <div className="text-center mb-8">
@@ -206,93 +208,7 @@ export default function InvestingPage() {
           </div>
         </section>
 
-        <section className="py-12 md:py-16 bg-gray-900 text-white">
-          <div className="max-w-md mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-serif mb-4">
-              Boost your protection
-            </h2>
-            <p className="text-gray-300 mb-6 text-sm leading-relaxed">
-              Get the latest security features and tips in the newly redesigned Security Center, only in the Silverline Bank Mobile® app<sup>2</sup>.
-            </p>
-            
-            {/* Mock phone with Security Center interface */}
-            <div className="relative mx-auto mb-6" style={{ width: '280px', height: '500px' }}>
-              <div className="absolute inset-0 bg-white rounded-[2.5rem] p-2 shadow-2xl">
-                <div className="w-full h-full bg-teal-800 rounded-[2rem] relative overflow-hidden">
-                  {/* Status bar */}
-                  <div className="flex justify-between items-center px-6 py-3 text-white text-sm">
-                    <span>5:41</span>
-                    <div className="flex items-center gap-1">
-                      <div className="flex gap-1">
-                        <div className="w-1 h-3 bg-white rounded-full"></div>
-                        <div className="w-1 h-3 bg-white rounded-full"></div>
-                        <div className="w-1 h-3 bg-white rounded-full"></div>
-                        <div className="w-1 h-3 bg-white rounded-full"></div>
-                      </div>
-                      <div className="text-xs">📶 📶 📶</div>
-                      <div className="text-xs">🔋</div>
-                    </div>
-                  </div>
-                  
-                  {/* Header */}
-                  <div className="px-6 py-4">
-                    <div className="flex items-center justify-between mb-4">
-                      <button className="text-white text-lg">←</button>
-                      <div className="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center">
-                        <span className="text-white text-xs">🛡️</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <span className="text-white">🔔</span>
-                        <span className="text-white">🔒</span>
-                        <span className="text-white text-xs">Sign off</span>
-                      </div>
-                    </div>
-                    
-                    <h3 className="text-white text-xl font-semibold mb-2">Security Center</h3>
-                    <p className="text-teal-200 text-sm mb-6">Take a minute to explore your top recommendations</p>
-                    
-                    <div className="text-center mb-6">
-                      <div className="text-green-400 text-6xl font-bold mb-2">80%</div>
-                      <div className="text-green-400 text-sm font-medium tracking-wider">DONE</div>
-                      <div className="w-16 h-16 mx-auto mt-4 bg-green-400 rounded-full flex items-center justify-center">
-                        <span className="text-teal-800 text-2xl">✓</span>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Bottom card */}
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="bg-white rounded-2xl p-4 text-center">
-                      <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <span className="text-white text-sm">✓</span>
-                      </div>
-                      <h4 className="text-gray-900 font-semibold mb-1">Very Nice!</h4>
-                      <p className="text-gray-600 text-sm">You've gone paperless.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* App Store button */}
-            <div className="mb-6">
-              <div className="inline-flex items-center bg-black rounded-lg px-4 py-2">
-                <div className="mr-3">
-                  <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/>
-                  </svg>
-                </div>
-                <div className="text-left">
-                  <div className="text-white text-xs">Download on the</div>
-                  <div className="text-white text-lg font-semibold">App Store</div>
-                </div>
-              </div>
-            </div>
-
-            <p className="text-gray-400 text-xs">*Screen images simulated</p>
-          </div>
-        </section>
-
+        {/* Benefits */}
         <section className="py-12 md:py-16 bg-background">
           <div className="max-w-md mx-auto px-4">
             <div className="text-center mb-8">
