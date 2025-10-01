@@ -8,7 +8,7 @@ const professionalBusinessImg = "https://images.unsplash.com/photo-1758518729685
 const happyMotherImg = "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=1200&auto=format&fit=crop";
 const modernBridgeImg = "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?q=80&w=1200&auto=format&fit=crop";
 const personHoldingSmartImg = "https://images.unsplash.com/photo-1510552776732-03e61cf4b144?q=80&w=1200&auto=format&fit=crop";
-const happyCoupleImg = "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop";
+const happyCoupleImg = "https://images.unsplash.com/photo-1758691031235-9db55497d898?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&dl=vitaly-gariev-igTBzhDtw40-unsplash.jpg?q=80&w=1200&auto=format&fit=crop";
 const laboratoryImg = "https://images.unsplash.com/photo-1581092795360-6a5d3c1df2b3?q=80&w=1200&auto=format&fit=crop";
 const digitalNetworkImg = "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop";
 
