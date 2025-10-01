@@ -389,6 +389,24 @@ export default function NavigationMenu({ isOpen, onClose }: NavigationMenuProps)
           onClick={() => {
             if (category.submenu) {
               setViewState({ type: "category", category: key });
+            } else if (key === "investing") {
+              setLocation('/investing');
+              onClose();
+            } else if (key === "smallBusiness") {
+              setLocation('/small-business');
+              onClose();
+            } else if (key === "commercial") {
+              setLocation('/commercial-banking');
+              onClose();
+            } else if (key === "corporate") {
+              setLocation('/corporate-investment-banking');
+              onClose();
+            } else if (key === "about") {
+              setLocation('/about');
+              onClose();
+            } else if (key === "atms") {
+              setLocation('/atm-locations');
+              onClose();
             }
           }}
         >
@@ -424,7 +442,7 @@ export default function NavigationMenu({ isOpen, onClose }: NavigationMenuProps)
   const renderDetailMenu = (categoryKey: string, itemKey: string) => {
     const category = menuData[categoryKey];
     if (!category.submenu) return null;
-    
+
     const item = category.submenu[itemKey];
     if (!item) return null;
 
@@ -440,7 +458,7 @@ export default function NavigationMenu({ isOpen, onClose }: NavigationMenuProps)
             </Button>
           </div>
         )}
-        
+
         {item.secondaryAction && (
           <div className="px-4 pb-3">
             <Button 
@@ -496,7 +514,7 @@ export default function NavigationMenu({ isOpen, onClose }: NavigationMenuProps)
         className="fixed inset-0 bg-foreground/50 z-40"
         onClick={onClose}
       />
-      <div className="fixed top-0 right-0 h-full w-full md:w-96 bg-background z-50 shadow-xl overflow-y-auto">
+      <div className="fixed top-0 right-0 h-full w-80 bg-background z-50 shadow-xl overflow-y-auto">
         <div className="bg-primary text-primary-foreground p-4 flex items-center justify-between sticky top-0 z-10">
           <h2 className="text-xl font-bold">SILVERLINE BANK</h2>
           <div className="flex items-center gap-2">
