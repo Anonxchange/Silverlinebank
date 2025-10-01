@@ -11,6 +11,9 @@ import CommercialBankingPage from "@/pages/CommercialBankingPage";
 import CorporateInvestmentBankingPage from "@/pages/CorporateInvestmentBankingPage";
 import AtmLocationPage from "@/pages/AtmLocationPage";
 import AboutPage from "@/pages/AboutPage";
+import CustomerServicePage from "@/pages/CustomerServicePage";
+import SavingsPage from "@/pages/SavingsPage";
+import CheckingPage from "@/pages/CheckingPage";
 import NotFoundPage from "@/pages/not-found";
 
 function Router() {
@@ -23,7 +26,10 @@ function Router() {
       <Route path="/commercial-banking" component={CommercialBankingPage} />
       <Route path="/corporate-investment-banking" component={CorporateInvestmentBankingPage} />
       <Route path="/atm-locations" component={AtmLocationPage} />
-       <Route path="/about" component={AboutPage} />
+      <Route path="/about" component={AboutPage} />
+      <Route path="/customer-service" component={CustomerServicePage} />
+      <Route path="/savings" component={SavingsPage} />
+      <Route path="/checking" component={CheckingPage} />
       <Route component={NotFoundPage} />
     </Switch>
   );
