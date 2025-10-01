@@ -39,7 +39,7 @@ export default function AboutPage() {
                   </p>
                 </div>
               </div>
-            </div>
+          
 
            {/* Unified card overlapping the image */}
               <div className="absolute bottom-0 left-0 right-0 flex justify-center px-4">
@@ -53,7 +53,7 @@ export default function AboutPage() {
                   </p>
                 </div>
               </div>
-            </div>
+            
 
            {/* Unified card overlapping the image */}
               <div className="absolute bottom-0 left-0 right-0 flex justify-center px-4">
