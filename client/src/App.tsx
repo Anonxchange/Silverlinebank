@@ -6,7 +6,11 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import HomePage from "@/pages/HomePage";
 import SignOnPage from "@/pages/SignOnPage";
 import InvestingPage from "@/pages/InvestingPage";
-import NotFound from "@/pages/not-found";
+import SmallBusinessPage from "@/pages/SmallBusinessPage";
+import CommercialBankingPage from "@/pages/CommercialBankingPage";
+import CorporateInvestmentBankingPage from "@/pages/CorporateInvestmentBankingPage";
+import AtmLocationPage from "@/pages/AtmLocationPage";
+import NotFoundPage from "@/pages/not-found";
 
 function Router() {
   return (
@@ -14,7 +18,11 @@ function Router() {
       <Route path="/" component={HomePage} />
       <Route path="/sign-on" component={SignOnPage} />
       <Route path="/investing" component={InvestingPage} />
-      <Route component={NotFound} />
+      <Route path="/small-business" component={SmallBusinessPage} />
+      <Route path="/commercial-banking" component={CommercialBankingPage} />
+      <Route path="/corporate-investment-banking" component={CorporateInvestmentBankingPage} />
+      <Route path="/atm-locations" component={AtmLocationPage} />
+      <Route component={NotFoundPage} />
     </Switch>
   );
 }
