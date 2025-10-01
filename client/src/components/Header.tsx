@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation } from "wouter";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import NavigationMenu from "./NavigationMenu";
 
@@ -30,10 +30,10 @@ export default function Header() {
             variant="ghost" 
             className="text-primary-foreground hover:bg-primary/90"
             data-testid="button-menu"
-            onClick={() => setIsMenuOpen(true)}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <Menu className="h-6 w-6" />
-            <span className="sr-only">Menu</span>
+            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            <span className="sr-only">{isMenuOpen ? 'Close' : 'Menu'}</span>
           </Button>
         </div>
       </header>
