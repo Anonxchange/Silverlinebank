@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import communityImg1 from "@assets/generated_images/Gemini_Generated_Image_ghkkopghkkopghkk.png";
+import communityImg1 from "@assets/generated_images/Gemini_Generated_Image_x2rpypx2rpypx2rp.png";
 import communityImg2 from "@assets/generated_images/Community_empowerment_photography_d6423b3a.png";
 
 export default function CommunitySection() {
