@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 
 // Use public path for images
-const professionalBusinessImg = "/attached_assets/stock_images/professional_busines_ab5a546f.jpg";
+const professionalBusinessImg = "/attached_assets/stock_images/female-professional-helping-new-employee 2.jpg";
 const happyMotherImg = "/attached_assets/stock_images/happy_mother_playing_2f22dd98.jpg";
 const modernBridgeImg = "/attached_assets/stock_images/modern_bridge_infras_69e246fe.jpg";
 const personHoldingSmartImg = "/attached_assets/stock_images/person_holding_smart_653c4fd0.jpg";
