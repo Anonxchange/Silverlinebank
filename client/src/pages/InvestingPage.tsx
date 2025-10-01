@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 
 // Use public path for images
-const professionalBusinessImg = "https://images.unsplash.com/photo-1581090700227-4c4f8b3a56b9?q=80&w=1200&auto=format&fit=crop";
+const professionalBusinessImg = "https://images.unsplash.com/photo-1758518729685-f88df7890776?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&dl=vitaly-gariev-_BHlEskTT4c-unsplash.jpg?q=80&w=1200&auto=format&fit=crop";
 const happyMotherImg = "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=1200&auto=format&fit=crop";
 const modernBridgeImg = "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?q=80&w=1200&auto=format&fit=crop";
 const personHoldingSmartImg = "https://images.unsplash.com/photo-1510552776732-03e61cf4b144?q=80&w=1200&auto=format&fit=crop";
