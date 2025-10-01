@@ -13,7 +13,7 @@ export default function CorporateInvestmentBankingPage() {
         <section className="bg-white">
           <div className="relative h-64 md:h-80 overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1200&h=600&fit=crop"
+              src="https://raw.githubusercontent.com/Anonxchange/Silverlinebank/refs/heads/main/attached_assets/generated_images/Gemini_Generated_Image_4da3dx4da3dx4da3.png?w=1200&h=600&fit=crop"
               alt="Business professionals in modern office"
               className="w-full h-full object-cover"
             />
