@@ -40,6 +40,34 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
+
+           {/* Unified card overlapping the image */}
+              <div className="absolute bottom-0 left-0 right-0 flex justify-center px-4">
+                <div className="bg-white rounded-2xl p-6 md:p-8 text-center shadow-lg max-w-md w-full transform translate-y-1/2">
+                  <div className="w-16 h-1 bg-yellow-500 mx-auto mb-6"></div>
+                  <h2 className="text-2xl md:text-3xl font-light text-gray-900 mb-4">
+                    News releases
+                  </h2>
+                  <p className="text-gray-700 text-base leading-relaxed">
+                    Keeping you informed with the latest, breaking news from within and around Silverline Bank
+                  </p>
+                </div>
+              </div>
+            </div>
+
+           {/* Unified card overlapping the image */}
+              <div className="absolute bottom-0 left-0 right-0 flex justify-center px-4">
+                <div className="bg-white rounded-2xl p-6 md:p-8 text-center shadow-lg max-w-md w-full transform translate-y-1/2">
+                  <div className="w-16 h-1 bg-yellow-500 mx-auto mb-6"></div>
+                  <h2 className="text-2xl md:text-3xl font-light text-gray-900 mb-4">
+                    Silverline Bank Stories
+                  </h2>
+                  <p className="text-gray-700 text-base leading-relaxed">
+                    Expert tips, real stories, and customer spotlights to inform businesses, empower communities, and spark ideas.
+                  </p>
+                </div>
+              </div>
+            </div>
             
             {/* Add spacing to prevent overlap with next section */}
             <div className="h-24"></div>
