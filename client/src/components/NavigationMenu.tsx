@@ -407,6 +407,9 @@ export default function NavigationMenu({ isOpen, onClose }: NavigationMenuProps)
             } else if (key === "atms") {
               setLocation('/atm-locations');
               onClose();
+            } else if (key === "customerService") {
+              setLocation('/customer-service');
+              onClose();
             }
           }}
         >
@@ -476,7 +479,17 @@ export default function NavigationMenu({ isOpen, onClose }: NavigationMenuProps)
             <button
               key={index}
               className="w-full px-4 py-4 flex items-start gap-3 hover:bg-accent active:bg-accent/80 border-b border-border"
-              onClick={() => console.log(product.title)}
+              onClick={() => {
+                if (itemKey === 'savings') {
+                  setLocation('/savings');
+                  onClose();
+                } else if (itemKey === 'checking') {
+                  setLocation('/checking');
+                  onClose();
+                } else {
+                  console.log(product.title);
+                }
+              }}
             >
               <div className="text-2xl mt-1">{product.icon}</div>
               <div className="flex-1 text-left">
@@ -514,34 +527,8 @@ export default function NavigationMenu({ isOpen, onClose }: NavigationMenuProps)
         className="fixed inset-0 bg-foreground/50 z-40"
         onClick={onClose}
       />
-      <div className="fixed top-0 right-0 h-full w-80 bg-background z-50 shadow-xl overflow-y-auto">
-        <div className="bg-primary text-primary-foreground p-4 flex items-center justify-between sticky top-0 z-10">
-          <h2 className="text-xl font-bold">SILVERLINE BANK</h2>
-          <div className="flex items-center gap-2">
-            <Button 
-              variant="secondary" 
-              size="sm"
-              className="bg-white text-foreground hover:bg-white/90"
-              onClick={() => {
-                setLocation('/sign-on');
-                onClose();
-              }}
-            >
-              Sign On
-            </Button>
-            <Button 
-              size="icon" 
-              variant="ghost"
-              className="text-primary-foreground hover:bg-primary/90"
-              onClick={onClose}
-            >
-              <X className="h-6 w-6" />
-              <span className="sr-only">Close</span>
-            </Button>
-          </div>
-        </div>
-
-        <div className="p-4 border-b border-border bg-background">
+      <div className="fixed top-16 right-0 h-[calc(100vh-4rem)] w-80 bg-background z-50 shadow-xl overflow-y-auto">
+        <div className="p-4 bg-background border-b border-border">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
             <Input
@@ -549,7 +536,7 @@ export default function NavigationMenu({ isOpen, onClose }: NavigationMenuProps)
               placeholder="Search"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10"
+              className="pl-10 border-gray-300"
             />
           </div>
         </div>
