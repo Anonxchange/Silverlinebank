@@ -9,7 +9,7 @@ const happyMotherImg = "https://images.unsplash.com/photo-1607746882042-944635df
 const modernBridgeImg = "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?q=80&w=1200&auto=format&fit=crop";
 const personHoldingSmartImg = "https://images.unsplash.com/photo-1518186233392-c232efbf2373?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&dl=chris-liverani-NDfqqq_7QWM-unsplash.jpg?q=80&w=1200&auto=format&fit=crop";
 const happyCoupleImg = "https://images.unsplash.com/photo-1758691031235-9db55497d898?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&dl=vitaly-gariev-igTBzhDtw40-unsplash.jpg?q=80&w=1200&auto=format&fit=crop";
-const laboratoryImg = "https://images.unsplash.com/photo-1581092795360-6a5d3c1df2b3?q=80&w=1200&auto=format&fit=crop";
+const laboratoryImg = "https://images.unsplash.com/photo-1614935151651-0bea6508db6b?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&dl=julia-koblitz-RlOAwXt2fEA-unsplash.jpg?q=80&w=1200&auto=format&fit=crop";
 const digitalNetworkImg = "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop";
 
 const investmentOptions = [
