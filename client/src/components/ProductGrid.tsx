@@ -2,8 +2,8 @@ import { CreditCard, PiggyBank, Home, FileText, Car, TrendingUp, Crown, Graduati
 import { Link } from "wouter";
 
 const products = [
-  { icon: CreditCard, label: "Checking", gradient: "from-purple-400 to-blue-500", link: null },
-  { icon: PiggyBank, label: "Savings & CDs", gradient: "from-orange-400 to-yellow-500", link: null },
+  { icon: CreditCard, label: "Checking", gradient: "from-purple-400 to-blue-500", link: "/checking" },
+  { icon: PiggyBank, label: "Savings & CDs", gradient: "from-orange-400 to-yellow-500", link: "/savings" },
   { icon: CreditCard, label: "Credit Cards", gradient: "from-red-500 to-pink-500", link: null },
   { icon: Home, label: "Home Loans", gradient: "from-purple-500 to-indigo-400", link: null },
   { icon: FileText, label: "Personal Loans", gradient: "from-orange-400 to-red-400", link: null },
