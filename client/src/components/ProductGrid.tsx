@@ -6,11 +6,11 @@ const products = [
   { icon: PiggyBank, label: "Savings & CDs", gradient: "from-orange-400 to-yellow-500", link: "/savings" },
   { icon: CreditCard, label: "Credit Cards", gradient: "from-red-500 to-pink-500", link: null },
   { icon: Home, label: "Home Loans", gradient: "from-purple-500 to-indigo-400", link: "/home-loans" },
-  { icon: FileText, label: "Personal Loans", gradient: "from-orange-400 to-red-400", link: null },
-  { icon: Car, label: "Auto Loans", gradient: "from-red-600 to-orange-500", link: null },
+  { icon: FileText, label: "Personal Loans", gradient: "from-orange-400 to-red-400", link: "/personal-loans" },
+  { icon: Car, label: "Auto Loans", gradient: "from-red-600 to-orange-500", link: "/auto-loans" },
   { icon: TrendingUp, label: "Investing", gradient: "from-indigo-400 to-purple-500", link: "/investing" },
-  { icon: Crown, label: "Premier", gradient: "from-yellow-400 to-purple-400", link: null },
-  { icon: GraduationCap, label: "Education & Tools", gradient: "from-purple-500 to-pink-500", link: null },
+  { icon: Crown, label: "Premier", gradient: "from-yellow-400 to-purple-400", link: "/premier" },
+  { icon: GraduationCap, label: "Education & Tools", gradient: "from-purple-500 to-pink-500", link: "/education-tools" },
 ];
 
 export default function ProductGrid() {
