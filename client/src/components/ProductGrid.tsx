@@ -5,7 +5,7 @@ const products = [
   { icon: CreditCard, label: "Checking", gradient: "from-purple-400 to-blue-500", link: "/checking" },
   { icon: PiggyBank, label: "Savings & CDs", gradient: "from-orange-400 to-yellow-500", link: "/savings" },
   { icon: CreditCard, label: "Credit Cards", gradient: "from-red-500 to-pink-500", link: null },
-  { icon: Home, label: "Home Loans", gradient: "from-purple-500 to-indigo-400", link: null },
+  { icon: Home, label: "Home Loans", gradient: "from-purple-500 to-indigo-400", link: "/home-loans" },
   { icon: FileText, label: "Personal Loans", gradient: "from-orange-400 to-red-400", link: null },
   { icon: Car, label: "Auto Loans", gradient: "from-red-600 to-orange-500", link: null },
   { icon: TrendingUp, label: "Investing", gradient: "from-indigo-400 to-purple-500", link: "/investing" },
