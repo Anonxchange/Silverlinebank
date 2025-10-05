@@ -1,278 +1,312 @@
-import React, { useState } from 'react';
-import {
-  ChevronRight,
-  PiggyBank,
-  Percent,
-  Sprout,
-  Phone,
-  MapPin,
-  Calendar,
-} from 'lucide-react';
+
+import { useState } from 'react';
+import { ChevronLeft, ChevronRight, PiggyBank, TrendingUp, Calendar, Phone, MapPin, Shield, DollarSign } from 'lucide-react';
+import { Link } from 'wouter';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
-export default function SavingsAccountSelector() {
-  const [activeTab, setActiveTab] = useState('popular');
-  const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+export default function SavingsPage() {
+  const [selectedAccount, setSelectedAccount] = useState<'way2save' | 'platinum' | 'cd'>('way2save');
 
-  const tabs = [
-    { id: 'popular', label: 'Most popular', icon: PiggyBank },
-    { id: 'platinum', label: 'Platinum Savings', icon: Percent },
-    { id: 'cd', label: 'Certificates of Deposit', icon: Sprout },
+  const accounts = [
+    {
+      id: 'way2save',
+      name: 'Way2Save Savings',
+      tagline: 'Build your savings automatically',
+      gradient: 'from-blue-600 to-blue-800',
+      bestFor: 'Saving as you spend with automatic transfers',
+      minBalance: '$25',
+      monthlyFee: '$5',
+      feeWaiver: 'Save As You Go transfers or maintain $300 minimum daily balance',
+      features: ['Automatic savings transfers', 'No minimum opening deposit', 'Easy access to your money']
+    },
+    {
+      id: 'platinum',
+      name: 'Platinum Savings',
+      tagline: 'Grow your savings with competitive rates',
+      gradient: 'from-purple-600 to-indigo-700',
+      bestFor: 'Higher interest rates with flexible access',
+      minBalance: '$100',
+      monthlyFee: '$12',
+      feeWaiver: 'Maintain $3,500 minimum daily balance or link to a Premier checking account',
+      features: ['Competitive interest rates', 'Relationship interest rate discounts', 'Multiple ways to access your funds']
+    },
+    {
+      id: 'cd',
+      name: 'Certificates of Deposit',
+      tagline: 'Guaranteed returns regardless of market conditions',
+      gradient: 'from-emerald-600 to-teal-700',
+      bestFor: 'Fixed interest rates and guaranteed returns',
+      minBalance: '$2,500',
+      monthlyFee: 'No monthly fee',
+      feeWaiver: null,
+      features: ['Fixed interest rates', 'Terms from 3 months to 5 years', 'FDIC insured up to $250,000']
+    }
   ];
 
-  const faqs = [
-    'What is a savings account?',
-    'How do savings accounts work?',
-    'What do I need to open a savings account online?',
-    'How do I open a joint savings account or CD?',
-    'Are Wells Fargo savings accounts FDIC-insured?',
-  ];
+  const selectedAccountData = accounts.find(acc => acc.id === selectedAccount);
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
-      {/* Header Component */}
+    <div className="min-h-screen bg-background">
       <Header />
-
-      {/* Page Header */}
-      <div className="bg-red-600 text-white p-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center gap-2 mb-2">
-            <ChevronRight className="rotate-180" size={20} />
-            <span className="text-sm">Personal</span>
+      
+      <main className="pb-16">
+        {/* Page Header */}
+        <div className="border-b border-border bg-background">
+          <div className="max-w-7xl mx-auto px-4 py-4">
+            <Link href="/" className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors">
+              <ChevronLeft className="w-4 h-4 mr-1" />
+              Personal
+            </Link>
+            <h1 className="text-3xl md:text-4xl font-light mt-2 text-foreground">Savings Accounts and CDs</h1>
           </div>
-          <h1 className="text-2xl font-light">Savings Accounts and CDs</h1>
         </div>
-      </div>
 
-      {/* Tabs */}
-      <div className="bg-white border-b sticky top-0 z-10">
-        <div className="flex justify-around max-w-7xl mx-auto">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`flex-1 py-4 flex flex-col items-center gap-2 relative ${
-                activeTab === tab.id ? 'text-gray-900' : 'text-gray-500'
-              }`}
-            >
-              <tab.icon size={32} strokeWidth={1.5} />
-              <span className="text-xs text-center">{tab.label}</span>
-              {activeTab === tab.id && (
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-blue-700" />
-              )}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <main className="flex-1">
-        <div className="p-6 max-w-7xl mx-auto">
-          {activeTab === 'popular' && (
-            <div className="space-y-6">
-              <h2 className="text-3xl font-light text-center mb-8">
-                Choose a savings account
+        {/* Hero Section */}
+        <section className="relative h-64 md:h-80 overflow-hidden border-b border-border">
+          <img 
+            src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1600&h=600&fit=crop" 
+            alt="Savings and growth" 
+            className="w-full h-full object-cover"
+          />
+          <div className={`absolute inset-0 bg-gradient-to-br ${selectedAccountData?.gradient || 'from-blue-600 to-blue-800'}`}></div>
+          <div className="absolute inset-0 flex items-center justify-center px-4 text-white text-center">
+            <div>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-light mb-4">
+                Start saving for what matters most
               </h2>
-
-              <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-                <div className="bg-gradient-to-br from-blue-600 to-blue-800 p-6 text-white">
-                  <p className="text-lg mb-4">Savings. Made easy.</p>
-                  <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 text-xs">
-                    <div className="opacity-80">Account preview</div>
-                  </div>
-                </div>
-
-                <div className="p-6">
-                  <h3 className="text-2xl mb-2">Way2Save Savings</h3>
-                  <p className="text-gray-600 mb-6">
-                    Build your savings automatically
-                  </p>
-
-                  <div className="space-y-4">
-                    <div className="flex gap-4">
-                      <span className="font-semibold text-gray-700 w-24">
-                        Best for
-                      </span>
-                      <span className="text-gray-600">
-                        Saving as you spend with Save As You Go automatic
-                        transfers
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <p className="text-lg md:text-xl opacity-90">Choose the savings account that fits your goals</p>
             </div>
-          )}
+          </div>
+        </section>
 
-          {activeTab === 'cd' && (
-            <div className="space-y-6">
-              <div className="bg-white rounded-lg shadow-sm p-6">
-                <h3 className="text-2xl mb-4">Wells Fargo CDs</h3>
-                <p className="text-gray-600 mb-6">
-                  Guaranteed returns regardless of market conditions
-                </p>
-
-                <div className="space-y-4 mb-6">
-                  <div className="flex gap-4">
-                    <span className="font-semibold text-gray-700 w-32">
-                      Best for
-                    </span>
-                    <span className="text-gray-600">
-                      An alternative way to grow your savings with higher
-                      interest rates
-                    </span>
-                  </div>
-                  <div className="flex gap-4">
-                    <span className="font-semibold text-gray-700 w-32">
-                      Terms
-                    </span>
-                    <span className="text-gray-600">
-                      Flexible term options from 3 months to a year or more
-                    </span>
-                  </div>
-                  <div className="flex gap-4">
-                    <span className="font-semibold text-gray-700 w-32">
-                      Monthly service fee
-                    </span>
-                    <span className="text-gray-600">No monthly service fee</span>
-                  </div>
-                </div>
-
-                <p className="text-gray-700 mb-6">
-                  $2,500 minimum opening deposit
-                </p>
-
-                <button className="w-full bg-red-600 text-white py-4 rounded-full font-semibold mb-4 hover:bg-red-700 transition">
-                  Choose a CD
-                </button>
-
-                <a
-                  href="#"
-                  className="flex items-center justify-center gap-2 text-blue-700 hover:underline"
-                >
-                  Make an appointment at a branch
-                  <ChevronRight size={20} />
-                </a>
-              </div>
-            </div>
-          )}
-
-          {/* FAQs */}
-          <div className="mt-12 bg-white rounded-lg shadow-sm p-6">
-            <h2 className="text-2xl font-light text-center mb-8">Savings FAQs</h2>
-
-            <div className="space-y-1">
-              {faqs.map((faq, index) => (
+        {/* Account Selection Tabs */}
+        <section className="border-b border-border bg-background sticky top-0 z-10">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="flex justify-around gap-2">
+              {accounts.map((account) => (
                 <button
-                  key={index}
-                  onClick={() =>
-                    setExpandedFaq(expandedFaq === index ? null : index)
-                  }
-                  className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 border-b"
+                  key={account.id}
+                  onClick={() => setSelectedAccount(account.id as any)}
+                  className={`flex-1 py-4 px-2 text-center transition-all relative ${
+                    selectedAccount === account.id
+                      ? 'text-foreground'
+                      : 'text-muted-foreground hover:text-foreground'
+                  }`}
                 >
-                  <span className="text-gray-700">{faq}</span>
-                  <ChevronRight
-                    className={`transform transition-transform ${
-                      expandedFaq === index ? 'rotate-90' : ''
-                    }`}
-                    size={20}
-                  />
+                  <div className="text-sm md:text-base font-medium">{account.name}</div>
+                  {selectedAccount === account.id && (
+                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#D71E28]" />
+                  )}
                 </button>
               ))}
             </div>
           </div>
+        </section>
 
-          {/* Help Section */}
-          <div className="mt-8 bg-white rounded-lg shadow-sm p-6">
-            <h2 className="text-2xl font-light mb-6">How can we help?</h2>
-
-            <div className="space-y-4">
-              <button className="flex items-center gap-4 w-full p-3 hover:bg-gray-50 rounded-lg">
-                <div className="bg-gray-400 rounded-full p-3">
-                  <Phone className="text-white" size={24} />
+        {/* Account Details */}
+        {selectedAccountData && (
+          <section className="py-12 border-b border-border">
+            <div className="max-w-4xl mx-auto px-4">
+              <Card className="border-2 shadow-lg overflow-hidden">
+                <div className={`bg-gradient-to-br ${selectedAccountData.gradient} p-8 text-white`}>
+                  <h3 className="text-2xl md:text-3xl font-light mb-2">{selectedAccountData.name}</h3>
+                  <p className="text-lg opacity-90">{selectedAccountData.tagline}</p>
                 </div>
-                <span className="text-lg">Call us</span>
-                <ChevronRight className="ml-auto" size={20} />
-              </button>
+                
+                <CardContent className="p-8 space-y-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-2">Best for</h4>
+                      <p className="text-muted-foreground">{selectedAccountData.bestFor}</p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-2">Minimum opening deposit</h4>
+                      <p className="text-muted-foreground">{selectedAccountData.minBalance}</p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-2">Monthly service fee</h4>
+                      <p className="text-muted-foreground">{selectedAccountData.monthlyFee}</p>
+                    </div>
+                    {selectedAccountData.feeWaiver && (
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-2">Fee waiver</h4>
+                        <p className="text-muted-foreground">{selectedAccountData.feeWaiver}</p>
+                      </div>
+                    )}
+                  </div>
 
-              <button className="flex items-center gap-4 w-full p-3 hover:bg-gray-50 rounded-lg">
-                <div className="bg-gray-400 rounded-full p-3">
-                  <MapPin className="text-white" size={24} />
-                </div>
-                <span className="text-lg">Find a location</span>
-                <ChevronRight className="ml-auto" size={20} />
-              </button>
+                  <div className="border-t pt-6">
+                    <h4 className="font-semibold text-foreground mb-4">Key features</h4>
+                    <ul className="space-y-2">
+                      {selectedAccountData.features.map((feature, index) => (
+                        <li key={index} className="flex items-start gap-2">
+                          <ChevronRight className="w-5 h-5 text-[#D71E28] flex-shrink-0 mt-0.5" />
+                          <span className="text-muted-foreground">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-              <button className="flex items-center gap-4 w-full p-3 hover:bg-gray-50 rounded-lg">
-                <div className="bg-gray-400 rounded-full p-3">
-                  <Calendar className="text-white" size={24} />
-                </div>
-                <span className="text-lg text-blue-700">Make an appointment</span>
-              </button>
+                  <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                    <Button className="flex-1 bg-[#D71E28] hover:bg-[#B71820] text-white font-medium py-6 rounded-full text-lg shadow-md transition-all">
+                      Open account
+                    </Button>
+                    <Button variant="outline" className="flex-1 border-2 py-6 rounded-full text-lg font-medium">
+                      Learn more
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </section>
+        )}
+
+        {/* Benefits Section */}
+        <section className="py-16 bg-muted/30 border-b border-border">
+          <div className="max-w-7xl mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-light text-center mb-12 text-foreground">
+              Why save with Silverline Bank
+            </h2>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              <Card className="border-2 hover:shadow-lg transition-shadow">
+                <CardHeader className="text-center">
+                  <div className="w-16 h-16 rounded-full border-2 border-[#D71E28] flex items-center justify-center mx-auto mb-4">
+                    <Shield className="w-8 h-8 text-[#D71E28]" strokeWidth={2} />
+                  </div>
+                  <CardTitle className="text-xl text-foreground">FDIC Insured</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-base text-muted-foreground">
+                    Your deposits are insured up to $250,000 per depositor
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 hover:shadow-lg transition-shadow">
+                <CardHeader className="text-center">
+                  <div className="w-16 h-16 rounded-full border-2 border-[#D71E28] flex items-center justify-center mx-auto mb-4">
+                    <TrendingUp className="w-8 h-8 text-[#D71E28]" strokeWidth={2} />
+                  </div>
+                  <CardTitle className="text-xl text-foreground">Competitive Rates</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-base text-muted-foreground">
+                    Earn competitive interest rates on your savings
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 hover:shadow-lg transition-shadow">
+                <CardHeader className="text-center">
+                  <div className="w-16 h-16 rounded-full border-2 border-[#D71E28] flex items-center justify-center mx-auto mb-4">
+                    <DollarSign className="w-8 h-8 text-[#D71E28]" strokeWidth={2} />
+                  </div>
+                  <CardTitle className="text-xl text-foreground">Easy Access</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-base text-muted-foreground">
+                    Access your money when you need it through online or mobile banking
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
+        </section>
 
-          {/* Resources */}
-          <div className="mt-8 space-y-8">
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h2 className="text-2xl font-light mb-4">Manage your account</h2>
-              <div className="space-y-3">
-                <a
-                  href="#"
-                  className="flex items-center gap-2 text-blue-700 hover:underline"
-                >
-                  <ChevronRight size={20} />
-                  Tips on managing your money
-                </a>
-                <a
-                  href="#"
-                  className="flex items-center gap-2 text-blue-700 hover:underline"
-                >
-                  <ChevronRight size={20} />
-                  Manage your payments online
-                </a>
-                <a
-                  href="#"
-                  className="flex items-center gap-2 text-blue-700 hover:underline"
-                >
-                  <ChevronRight size={20} />
-                  Transferring money
-                </a>
-              </div>
-            </div>
+        {/* FAQs */}
+        <section className="py-16 border-b border-border">
+          <div className="max-w-4xl mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-light text-center mb-12 text-foreground">
+              Savings FAQs
+            </h2>
+            
+            <Accordion type="single" collapsible className="space-y-4">
+              <AccordionItem value="item-1" className="border rounded-lg px-6">
+                <AccordionTrigger className="text-left hover:no-underline">
+                  What is a savings account?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  A savings account is a deposit account that earns interest and provides a safe place to store your money while it grows.
+                </AccordionContent>
+              </AccordionItem>
 
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h2 className="text-2xl font-light mb-4">Additional resources</h2>
-              <div className="space-y-3">
-                <a
-                  href="#"
-                  className="flex items-center gap-2 text-blue-700 hover:underline"
-                >
-                  <ChevronRight size={20} />
-                  Planning for retirement
-                </a>
-                <a
-                  href="#"
-                  className="flex items-center gap-2 text-blue-700 hover:underline"
-                >
-                  <ChevronRight size={20} />
-                  Financial Health
-                </a>
-                <a
-                  href="#"
-                  className="flex items-center gap-2 text-blue-700 hover:underline"
-                >
-                  <ChevronRight size={20} />
-                  Kids Savings Account
-                </a>
-              </div>
+              <AccordionItem value="item-2" className="border rounded-lg px-6">
+                <AccordionTrigger className="text-left hover:no-underline">
+                  How do savings accounts work?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  You deposit money into your savings account, and it earns interest over time. You can withdraw funds when needed, though some accounts may have transaction limits.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-3" className="border rounded-lg px-6">
+                <AccordionTrigger className="text-left hover:no-underline">
+                  What do I need to open a savings account online?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  You'll need valid identification, your Social Security number, contact information, and an initial deposit to get started.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-4" className="border rounded-lg px-6">
+                <AccordionTrigger className="text-left hover:no-underline">
+                  Are Silverline Bank savings accounts FDIC-insured?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Yes, all Silverline Bank savings accounts are FDIC-insured up to $250,000 per depositor, per account ownership category.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </section>
+
+        {/* Help Section */}
+        <section className="py-16">
+          <div className="max-w-4xl mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-light text-center mb-12 text-foreground">
+              How can we help?
+            </h2>
+            
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="border-2 hover:shadow-lg transition-shadow cursor-pointer">
+                <CardContent className="p-6 text-center">
+                  <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center mx-auto mb-4">
+                    <Phone className="w-8 h-8 text-foreground" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2 text-foreground">Call us</h3>
+                  <p className="text-sm text-muted-foreground">1-800-TO-WELLS</p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 hover:shadow-lg transition-shadow cursor-pointer">
+                <CardContent className="p-6 text-center">
+                  <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center mx-auto mb-4">
+                    <MapPin className="w-8 h-8 text-foreground" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2 text-foreground">Find a location</h3>
+                  <p className="text-sm text-muted-foreground">Near you</p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 hover:shadow-lg transition-shadow cursor-pointer">
+                <CardContent className="p-6 text-center">
+                  <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center mx-auto mb-4">
+                    <Calendar className="w-8 h-8 text-foreground" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2 text-foreground">Make an appointment</h3>
+                  <p className="text-sm text-muted-foreground">At a branch</p>
+                </CardContent>
+              </Card>
             </div>
           </div>
-        </div>
+        </section>
       </main>
 
-      {/* Footer Component */}
       <Footer />
     </div>
   );
