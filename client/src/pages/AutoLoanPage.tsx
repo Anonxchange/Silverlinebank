@@ -115,7 +115,7 @@ export default function AutoLoanPage() {
         <section className="py-16 border-b border-border bg-[#0F3A47] text-white">
           <div className="max-w-3xl mx-auto px-4 text-center">
             <img 
-              src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop" 
+              src="https://raw.githubusercontent.com/Anonxchange/Silverlinebank/refs/heads/main/attached_assets/IMG_0882.png?w=600&h=400&fit=crop" 
               alt="Mobile app preview"
               className="rounded-lg shadow-lg w-full max-w-md mx-auto mb-8"
             />
