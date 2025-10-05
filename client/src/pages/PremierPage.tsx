@@ -354,7 +354,7 @@ export default function PremierPage() {
             <div className="max-w-md mx-auto mb-8">
               <div className="relative bg-white rounded-3xl p-4 shadow-2xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=600&fit=crop" 
+                  src="https://raw.githubusercontent.com/Anonxchange/Silverlinebank/refs/heads/main/attached_assets/IMG_0891.png?w=400&h=600&fit=crop" 
                   alt="Mobile app preview"
                   className="rounded-2xl w-full"
                 />
