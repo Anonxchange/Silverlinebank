@@ -14,6 +14,7 @@ import AboutPage from "@/pages/AboutPage";
 import CustomerServicePage from "@/pages/CustomerServicePage";
 import SavingsPage from "@/pages/SavingsPage";
 import CheckingPage from "@/pages/CheckingPage";
+import HomeLoanPage from "@/pages/HomeLoanPage";
 import NotFoundPage from "@/pages/not-found";
 
 function Router() {
@@ -30,6 +31,7 @@ function Router() {
       <Route path="/customer-service" component={CustomerServicePage} />
       <Route path="/savings" component={SavingsPage} />
       <Route path="/checking" component={CheckingPage} />
+      <Route path="/home-loans" component={HomeLoanPage} />
       <Route component={NotFoundPage} />
     </Switch>
   );
